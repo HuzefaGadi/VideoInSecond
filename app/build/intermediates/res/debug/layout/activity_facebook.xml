@@ -1,0 +1,8 @@
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/fragment"
+    class="com.videoinshort.MainFragment"
+    tools:layout="@layout/fragment_main" android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+
+
+<!-- From: file:/C:/Users/huzefaasger/Downloads/Buzzonn1/app/src/main/res/layout/activity_facebook.xml -->
