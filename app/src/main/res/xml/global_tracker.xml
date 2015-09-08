@@ -5,9 +5,11 @@
 
     <bool name="ga_autoActivityTracking">true</bool>
 
-    <screenName name="com.google.android.gms.analytics.samples.mobileplayground.ScreenviewFragment">GoogleAnalyticsExample ScreenViewSampleScreen</screenName>
-    <screenName name="com.google.android.gms.analytics.samples.mobileplayground.EcommerceFragment">GoogleAnalyticsExample EcommerceSampleScreen</screenName>
+    <screenName name="com.google.android.gms.analytics.samples.mobileplayground.ScreenviewFragment">GoogleAnalyticsExample ScreenViewSampleScreen
+</screenName>
+    <screenName name="com.google.android.gms.analytics.samples.mobileplayground.EcommerceFragment">GoogleAnalyticsExample EcommerceSampleScreen
+</screenName>
 
-    <string name="ga_trackingId">UA-62785054-1</string>
+    <string name="ga_trackingId">UA-67268774-1</string>
 
 </resources>

@@ -31,39 +31,70 @@ public class WebServiceUtility {
     Context mContext;
     SharedPreferences preferences;
 
-    public WebServiceUtility(Context context, FbProfile fbProfile) {
+    public WebServiceUtility(Context context,int action,Object fbProfile) {
         mContext = context;
-
         preferences = getPreferences(mContext);
-        new AsyncCallWS().execute(fbProfile);
+        new AsyncCallWS(action).execute(fbProfile);
     }
 
-    private class AsyncCallWS extends AsyncTask<FbProfile, Void, Void> {
+    private class AsyncCallWS extends AsyncTask<Object, Void, Void> {
+
+        int action;
+
+        public AsyncCallWS(int action)
+        {
+            this.action = action;
+        }
         @Override
-        protected Void doInBackground(FbProfile... params) {
+        protected Void doInBackground(Object... params) {
             Log.i(Constants.TAG, "doInBackground");
-
-
             SharedPreferences pref = getPreferences(mContext);
-            Tracker t = ((Analytics) mContext.getApplicationContext()).getTracker(
-                    Analytics.TrackerName.APP_TRACKER);
-            // Build and send an Event.
-            t.send(new HitBuilders.EventBuilder()
-                    .setCategory("GCM")
-                    .setAction("Reg Id sent")
-                    .setLabel("Reg Id upload")
-                    .build());
-            PackageInfo pInfo;
-            String appVersion = null;
-            try {
-                pInfo = mContext.getPackageManager().getPackageInfo(mContext.getPackageName(), 0);
-                appVersion = pInfo.versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+
+            if(action == Constants.SEND_FACEBOOK_DATA)
+            {
+                Tracker t = ((Analytics) mContext.getApplicationContext()).getTracker(
+                        Analytics.TrackerName.APP_TRACKER);
+                // Build and send an Event.
+                t.send(new HitBuilders.EventBuilder()
+                        .setCategory("USERDATA")
+                        .setAction("User data sent")
+                        .setLabel("User data Upload")
+                        .build());
+                PackageInfo pInfo;
+                String appVersion = null;
+                try {
+                    pInfo = mContext.getPackageManager().getPackageInfo(mContext.getPackageName(), 0);
+                    appVersion = pInfo.versionName;
+                } catch (PackageManager.NameNotFoundException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+                insertFacebookNewUserData((FbProfile)params[0]);
+            }
+            else if(action == Constants.SEND_APP_ACTIVE_DATA)
+            {
+                Tracker t = ((Analytics) mContext.getApplicationContext()).getTracker(
+                        Analytics.TrackerName.APP_TRACKER);
+                // Build and send an Event.
+                t.send(new HitBuilders.EventBuilder()
+                        .setCategory("App Active")
+                        .setAction("App Opened")
+                        .setLabel("App Opened By User")
+                        .build());
+                PackageInfo pInfo;
+                String appVersion = null;
+                try {
+                    pInfo = mContext.getPackageManager().getPackageInfo(mContext.getPackageName(), 0);
+                    appVersion = pInfo.versionName;
+                } catch (PackageManager.NameNotFoundException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+                insertAppActive((String)params[0]);
             }
 
-            insertFacebookNewUserData(params[0]);
 
 
             return null;
@@ -200,7 +231,37 @@ public class WebServiceUtility {
             SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
             //Assign it to fahren static variable
             String responseFromService = response.toString();
-            System.out.println("Response " + responseFromService);
+            System.out.println("Response for New Facebook User" + responseFromService);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertAppActive(String regId) {
+
+        SoapObject request = new SoapObject(Constants.NAMESPACE, Constants.ACTIVE_METHOD_NAME);
+
+        PropertyInfo mobileRegistrationId = new PropertyInfo();
+        mobileRegistrationId.setName("mobileRegistrationId");
+        mobileRegistrationId.setValue(regId);
+        mobileRegistrationId.setType(String.class);
+
+        request.addProperty(mobileRegistrationId);
+
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                SoapEnvelope.VER11);
+        envelope.dotNet = true;
+        envelope.setOutputSoapObject(request);
+        HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.ACTIVE_URL);
+
+        try {
+            //Invole web service
+            androidHttpTransport.call(Constants.ACTIVE_SOAP_ACTION, envelope);
+            //Get the response
+            SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
+            //Assign it to fahren static variable
+            String responseFromService = response.toString();
+            System.out.println("Response For Insert App Active" + responseFromService);
         } catch (Exception e) {
             e.printStackTrace();
         }

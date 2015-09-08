@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- change the following line  -->
-    <string name="ga_trackingId">UA-62785054-1</string>
+    <string name="ga_trackingId">UA-67268774-1</string>
 
     <bool name="ga_autoActivityTracking">true</bool>
     <bool name="ga_reportUncaughtExceptions">true</bool>
     
 
-    <string name="ga_appName">Buzzonn</string>
-    <string name="ga_appVersion">1.5</string>
+    <string name="ga_appName">VideoInShort</string>
+    <string name="ga_appVersion">1.0</string>
 
     <bool name="ga_debug">true</bool>
 
@@ -23,6 +23,6 @@
 
     <integer name="ga_sessionTimeout">-1</integer>
 
-    <string name="com.videoinshort.MyActivity">BuzzonnMyActivity</string>
+    <string name="com.videoinshort.MyActivity">VideoInShortMyActivity</string>
 
 </resources>

@@ -107,7 +107,7 @@ public class GcmIntentService extends IntentService {
 				NotificationMessage notification = gson.fromJson(extras.getString("message"), NotificationMessage.class);
 				if(utility.checkInternetConnectivity(this))
 				{
-					sendAcknowledgement(notification);
+					//sendAcknowledgement(notification);
 				}
 
 				sendNotification(extras.getString("message"));
@@ -157,7 +157,7 @@ public class GcmIntentService extends IntentService {
 		.build());
 	}
 
-	public void sendAcknowledgement(NotificationMessage
+	public void sendAcknowledgement2(NotificationMessage
 			notification)
 	{
 
@@ -166,7 +166,7 @@ public class GcmIntentService extends IntentService {
 		//Property which holds input parameters
 		PropertyInfo userId = new PropertyInfo();
 		//Set Name
-		userId.setName("fuid");
+		userId.setName("UserId");
 		//Set Value
 		userId.setValue(notification.getUid());
 		//Set dataType
@@ -174,29 +174,15 @@ public class GcmIntentService extends IntentService {
 		//Add the property to request object
 
 		//Property which holds input parameters
-		PropertyInfo commentId = new PropertyInfo();
+		PropertyInfo notificationId = new PropertyInfo();
 		//Set Name
-		commentId.setName("cid");
+		notificationId.setName("NotificationId");
 		//Set Value
-		commentId.setValue(notification.getCid());
+		notificationId.setValue(notification.getNotificationId());
 		//Set dataType
-		commentId.setType(String.class);
+		notificationId.setType(String.class);
 		//Add the property to request object
-		//Property which holds input parameters
-		PropertyInfo replyId = new PropertyInfo();
-		//Set Name
-		replyId.setName("rid");
-		//Set Value
-		if(notification.getRid() !=null && !notification.getRid().isEmpty())
-		{
-			replyId.setValue(notification.getRid());
-		}
-		else
-		{
-			replyId.setValue("");
-		}
-		//Set dataType
-		replyId.setType(String.class);
+
 
 		//Property which holds input parameters
 		PropertyInfo clickStatus = new PropertyInfo();
@@ -210,7 +196,7 @@ public class GcmIntentService extends IntentService {
 		//Property which holds input parameters
 		PropertyInfo recStatus = new PropertyInfo();
 		//Set Name
-		recStatus.setName("recstatus");
+		recStatus.setName("receiveStatus");
 		//Set Value
 		recStatus.setValue("1");
 		//Set dataType
@@ -221,11 +207,7 @@ public class GcmIntentService extends IntentService {
 
 		//Add the property to request object
 		request.addProperty(userId);
-		request.addProperty(commentId);
-
-		request.addProperty(replyId);
-
-
+		request.addProperty(notificationId);
 		request.addProperty(recStatus);
 		request.addProperty(clickStatus);
 

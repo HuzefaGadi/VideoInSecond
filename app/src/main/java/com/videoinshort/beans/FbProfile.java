@@ -14,6 +14,7 @@ public class FbProfile {
     private String email;
     private Location location;
     private String profileImagePath;
+    @SerializedName("id")
     private String fbUserId;
     @SerializedName("birthday")
     private String dateOfBirth;

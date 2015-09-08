@@ -4,8 +4,8 @@ package com.videoinshort.utilities;
  * Created by huzefaasger on 07-09-2015.
  */
 public class Constants {
-    public static final String PREFERENCES_NAME = "preferences" ;
-    public static final String FB_USER_INFO = "fbUserInfo" ;
+    public static final String PREFERENCES_NAME = "preferences";
+    public static final String FB_USER_INFO = "fbUserInfo";
     public static final String QUIZ_FEED_URL = "http://www.videoinshort.com/";
     public static final String EXTRA_MESSAGE = "message";
     public static final String PROPERTY_REG_ID = "registration_id";
@@ -29,10 +29,19 @@ public class Constants {
     public static final String CONTACT_URL = "http://m1.buzzonn.com/BuzzonFBList.asmx";
     public static final String CONTACT_SOAP_ACTION = "http://tempuri.org/insertFBList";
     public static final String CONTACT_METHOD_NAME = "insertFBList";
-    public static final String ACK_URL = "http://m1.buzzonn.com/BuzzonnService.asmx";
-    public static final String ACK_SOAP_ACTION = "http://tempuri.org/UpdateAppNotiStatus";
-    public static final String ACK_METHOD_NAME = "UpdateAppNotiStatus";
+
+    public static final String ACK_URL = "http://service.videoinshort.com/savefbuserdata.asmx";
+    public static final String ACK_SOAP_ACTION = "http://tempuri.org/SendClickReceiveNotiFication";
+    public static final String ACK_METHOD_NAME = "SendClickReceiveNotiFication";
+
+    public static final String ACTIVE_URL = "http://service.videoinshort.com/savefbuserdata.asmx";
+    public static final String ACTIVE_SOAP_ACTION = "http://tempuri.org/AppActive";
+    public static final String ACTIVE_METHOD_NAME = "AppActive";
+
     public static final String NAMESPACE = "http://tempuri.org/";
+    public static final String MENU_SETTINGS = "menusettings";
+    public static final int SEND_FACEBOOK_DATA = 1 ;
+    public static final int SEND_APP_ACTIVE_DATA = 2;
     public static String SEND_REG_ID = "REGID";
     public static String SEND_CONTACTS = "CONTACTS";
 }

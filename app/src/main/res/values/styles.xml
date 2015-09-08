@@ -10,8 +10,11 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+        <item name="actionBarPopupTheme">@style/CMOptionsMenu</item>
     </style>
-
+    <style name="CMOptionsMenu" parent="ThemeOverlay.AppCompat">
+        <item name="android:colorBackground">#FF0000</item>
+    </style>
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->

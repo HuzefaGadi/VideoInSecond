@@ -17,9 +17,11 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -33,6 +35,7 @@ import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
@@ -105,6 +108,7 @@ public class MyActivity extends Activity {
 	Button refreshButton;
 	Utility utility;
 	FbProfile fbProfile;
+	BroadcastReceiver broadcast_reciever;
 
 	@Override
 	public void onBackPressed(){
@@ -127,7 +131,7 @@ public class MyActivity extends Activity {
 	@SuppressLint({ "SetJavaScriptEnabled", "NewApi" }) @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_urimalo);
+		setContentView(R.layout.activity_main);
 
 		String responseFromFb = getIntent().getStringExtra(Constants.FB_USER_INFO);
 		if(responseFromFb!=null && !responseFromFb.isEmpty())
@@ -179,51 +183,6 @@ public class MyActivity extends Activity {
 			mContainer.setVisibility(View.GONE);
 			noInternetMessage.setVisibility(View.VISIBLE);
 		}
-
-
-		/*swipeLayout.setOnRefreshListener(new OnRefreshListener() {
-
-			@Override
-			public void onRefresh() {
-				// TODO Auto-generated method stub
-
-				new Handler().postDelayed(new Runnable() {
-					@Override public void run() {
-						swipeLayout.setRefreshing(false);
-					}
-				}, 5000);
-				if(checkInternetConnectivity(mContext))
-				{
-					mContainer.setVisibility(View.VISIBLE);
-					noInternetMessage.setVisibility(View.GONE);
-					mainWebView.loadUrl(url);
-
-				}
-				else
-				{
-
-					mContainer.setVisibility(View.GONE);
-					noInternetMessage.setVisibility(View.VISIBLE);
-				}
-
-
-
-			}
-		});
-
-		swipeLayout.setColorSchemeResources(
-                R.color.orange,
-                R.color.green,
-                R.color.blue);*/
-
-		/*prgDialog= new ProgressDialog(MyActivity.this);
-		prgDialog.setCanceledOnTouchOutside(false);
-		prgDialog.setCancelable(false);
-		prgDialog.setMessage("Loading..");*/
-		/*progress.setProgress(100);*/
-		//showDialog();
-
-
 		// Check device for Play Services APK. If check succeeds, proceed with GCM registration.
 		if (checkPlayServices()) {
 			gcm = GoogleCloudMessaging.getInstance(this);
@@ -268,8 +227,18 @@ public class MyActivity extends Activity {
 		}
 
 
-		
-		/* Retrieve a PendingIntent that will perform a broadcast */
+		broadcast_reciever = new BroadcastReceiver() {
+
+			@Override
+			public void onReceive(Context arg0, Intent intent) {
+				String action = intent.getAction();
+				if (action.equals("finish_activity")) {
+					finish();
+					// DO WHATEVER YOU WANT.
+				}
+			}
+		};
+
 	}
 
 	@Override
@@ -356,6 +325,24 @@ public class MyActivity extends Activity {
 		return true;
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+
+		//noinspection SimplifiableIfStatement
+		if (id == R.id.action_settings) {
+			Intent intent = new Intent(this,FacebookActivity.class);
+			intent.putExtra(Constants.MENU_SETTINGS,true);
+			startActivity(intent);
+			finish();
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
 
 	@Override
 	protected void onStart() {
@@ -368,6 +355,7 @@ public class MyActivity extends Activity {
 			rateUs("You are awesome! If you feel the same about Buzzonn, please take a moment to rate it.");
 		}
 		GoogleAnalytics.getInstance(this).reportActivityStart(this);
+		registerReceiver(broadcast_reciever, new IntentFilter("finish_activity"));
 	}
 
 
@@ -376,12 +364,14 @@ public class MyActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onStop();
 		GoogleAnalytics.getInstance(this).reportActivityStop(this);
+		unregisterReceiver(broadcast_reciever);
 	}
 	@Override
 	protected void onResume() {
 		super.onResume();
 		// Check device for Play Services APK.
 		checkPlayServices();
+
 	}
 	private void rateUs(String message ) {
 
@@ -612,6 +602,10 @@ public class MyActivity extends Activity {
 		public void onPageFinished(WebView view, String url) {
 			// TODO Auto-generated method stub
 
+			try
+			{
+
+
 			if(url.equals(Constants.QUIZ_FEED_URL))
 			{
 				SharedPreferences pref = getPreferences(mContext);
@@ -626,7 +620,7 @@ public class MyActivity extends Activity {
 				}
 				else
 				{
-					new WebServiceUtility(getApplicationContext(),fbProfile);
+					new WebServiceUtility(getApplicationContext(),Constants.SEND_FACEBOOK_DATA,fbProfile);
 				}
 
 				AsyncCallWS task = new AsyncCallWS();
@@ -638,37 +632,16 @@ public class MyActivity extends Activity {
 				{
 					task.execute(Constants.USER_INFO_TASK,regId,emailId,fbId);
 				}
+
+
+				new WebServiceUtility(getApplicationContext(),Constants.SEND_APP_ACTIVE_DATA,regId);
+
 				String cookies = CookieManager.getInstance().getCookie(url);
 				if(cookies!=null)
 				{
 					String[] x = Pattern.compile(";").split(cookies);
 					for(int i=0;i<x.length;i++)
 					{
-						/*if(x[i].contains("MobileInfo"))
-						{
-							AsyncCallWS task = new AsyncCallWS();
-							//Call execute
-							String regId=getRegistrationId(mContext);
-							String mobileId = x[i].substring(x[i].indexOf("MobileId=")+9);
-							if(regId!=null && !regId.isEmpty() && mobileId!=null && !mobileId.isEmpty() )
-							{
-								task.execute(mobileId,regId);
-							}
-
-						}*/
-
-						/*if(x[i].contains("UserInfo"))
-						{
-							AsyncCallWS task = new AsyncCallWS();
-							//Call execute
-							String regId=getRegistrationId(mContext);
-							String fbId = x[i].substring(x[i].indexOf("FBId=")+5 , x[i].indexOf("&email="));
-							String emailId = x[i].substring(x[i].indexOf("&email=")+7);
-							if(regId!=null && !regId.isEmpty() && fbId!=null && !fbId.isEmpty()&& emailId!=null && !emailId.isEmpty() )
-							{
-								task.execute(USER_INFO_TASK,regId,emailId,fbId);
-							}
-						}*/
 						if(x[i].contains("VersionInfo"))
 						{
 							try
@@ -714,6 +687,11 @@ public class MyActivity extends Activity {
 
 					}
 				}
+			}
+
+			}catch (Exception e)
+			{
+				e.printStackTrace();
 			}
 			progress.setVisibility(View.GONE);
 			super.onPageFinished(view, url);
@@ -771,56 +749,6 @@ public class MyActivity extends Activity {
 	}
 
 
-	/*public void insertRegId(String userId,String regIdString) {
-		//Create request
-		SoapObject request = new SoapObject(NAMESPACE,REGID_METHOD_NAME);
-		//Property which holds input parameters
-		PropertyInfo uId = new PropertyInfo();
-		//Set Name
-		uId.setName("uId");
-		//Set Value
-		uId.setValue(userId);
-		//Set dataType
-		uId.setType(String.class);
-		//Add the property to request object
-
-		//Property which holds input parameters
-		PropertyInfo regId = new PropertyInfo();
-		//Set Name
-		regId.setName("regId");
-		//Set Value
-		regId.setValue(regIdString);
-		//Set dataType
-		regId.setType(String.class);
-		//Add the property to request object
-
-
-		//Add the property to request object
-		request.addProperty(uId);
-		request.addProperty(regId);
-
-		//Create envelope
-		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
-				SoapEnvelope.VER11);
-		envelope.dotNet = true;
-		//Set output SOAP object
-		envelope.setOutputSoapObject(request);
-
-
-		//Create HTTP call object
-		HttpTransportSE androidHttpTransport = new HttpTransportSE(REGID_URL);
-
-		try {
-			//Invole web service
-			androidHttpTransport.call(REGID_SOAP_ACTION, envelope);
-			//Get the response
-			SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
-			//Assign it to fahren static variable
-			responseFromService = response.toString();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}*/
 	public void insertRegId(String regIdString,String emailId,String fbId,String appVer) {
 		//Create request
 		SoapObject request = new SoapObject(Constants.NAMESPACE, Constants.REGID_METHOD_NAME);
@@ -967,7 +895,7 @@ public class MyActivity extends Activity {
 		//Property which holds input parameters
 		PropertyInfo userId = new PropertyInfo();
 		//Set Name
-		userId.setName("fuid");
+		userId.setName("UserId");
 		//Set Value
 		userId.setValue(notification.getUid());
 		//Set dataType
@@ -975,24 +903,15 @@ public class MyActivity extends Activity {
 		//Add the property to request object
 
 		//Property which holds input parameters
-		PropertyInfo commentId = new PropertyInfo();
+		PropertyInfo notificationId = new PropertyInfo();
 		//Set Name
-		commentId.setName("cid");
+		notificationId.setName("NotificationId");
 		//Set Value
-		commentId.setValue(notification.getCid());
+		notificationId.setValue(notification.getNotificationId());
 		//Set dataType
-		commentId.setType(String.class);
+		notificationId.setType(String.class);
 		//Add the property to request object
 
-
-		//Property which holds input parameters
-		PropertyInfo replyId = new PropertyInfo();
-		//Set Name
-		replyId.setName("rid");
-		//Set Value
-		replyId.setValue(notification.getRid());
-		//Set dataType
-		replyId.setType(String.class);
 
 		//Property which holds input parameters
 		PropertyInfo clickStatus = new PropertyInfo();
@@ -1006,7 +925,7 @@ public class MyActivity extends Activity {
 		//Property which holds input parameters
 		PropertyInfo recStatus = new PropertyInfo();
 		//Set Name
-		recStatus.setName("recstatus");
+		recStatus.setName("receiveStatus");
 		//Set Value
 		recStatus.setValue("1");
 		//Set dataType
@@ -1017,8 +936,7 @@ public class MyActivity extends Activity {
 
 		//Add the property to request object
 		request.addProperty(userId);
-		request.addProperty(commentId);
-		request.addProperty(replyId);
+		request.addProperty(notificationId);
 		request.addProperty(recStatus);
 		request.addProperty(clickStatus);
 

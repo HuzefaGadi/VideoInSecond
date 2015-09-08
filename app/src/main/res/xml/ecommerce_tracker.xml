@@ -2,5 +2,5 @@
 <resources>
     <integer name="ga_sessionTimeout">60</integer>
     <!-- change the following line  -->
-    <string name="ga_trackingId">UA-62785054-1</string>
+    <string name="ga_trackingId">UA-67268774-1</string>
 </resources>

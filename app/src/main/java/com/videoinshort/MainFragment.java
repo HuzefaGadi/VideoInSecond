@@ -1,4 +1,5 @@
 package com.videoinshort;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
@@ -39,13 +40,17 @@ import java.util.Arrays;
 public class MainFragment extends Fragment {
 
     private CallbackManager callbackManager;
-    private TextView textView;
+
 
     private AccessTokenTracker accessTokenTracker;
     private ProfileTracker profileTracker;
 
     SharedPreferences preferences;
     SharedPreferences.Editor edit;
+    boolean fromSettings;
+
+
+
 
     private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
         @Override
@@ -77,6 +82,8 @@ public class MainFragment extends Fragment {
                                 Intent intent = new Intent(getActivity(),MyActivity.class);
                                 intent.putExtra(Constants.FB_USER_INFO, fbUserInfo);
                                 startActivity(intent);
+                                getActivity().finish();
+
                             }
                             System.out.println("response---->>"+object);
                             Log.v("LoginActivity", response.toString());
@@ -103,10 +110,25 @@ public class MainFragment extends Fragment {
 
     }
 
+    /*@Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
 
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception
+        try {
+            mCallback = (LoginSuccess) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement textEntered");
+        }
+    }*/
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
+        fromSettings = getActivity().getIntent().getBooleanExtra(Constants.MENU_SETTINGS,false);
+
         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
         preferences = getActivity().getSharedPreferences(Constants.PREFERENCES_NAME, Context.MODE_PRIVATE);
         edit = preferences.edit();
@@ -129,7 +151,11 @@ public class MainFragment extends Fragment {
         accessTokenTracker.startTracking();
         profileTracker.startTracking();
 
-        updateWithToken(AccessToken.getCurrentAccessToken());
+        if(!fromSettings)
+        {
+            updateWithToken(AccessToken.getCurrentAccessToken());
+        }
+
     }
 
     private void updateWithToken(AccessToken newToken) {
@@ -137,8 +163,12 @@ public class MainFragment extends Fragment {
         if(newToken!=null)
         {
             Intent intent = new Intent(getActivity(),MyActivity.class);
-
             startActivity(intent);
+        }
+        else
+        {
+            Intent intent = new Intent("finish_activity");
+            getActivity().sendBroadcast(intent);
         }
     }
 
@@ -153,7 +183,7 @@ public class MainFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         LoginButton loginButton = (LoginButton) view.findViewById(R.id.login_button);
-        textView = (TextView) view.findViewById(R.id.textView);
+
 
         loginButton.setReadPermissions(Arrays.asList("public_profile, email, user_birthday, user_friends,user_location,basic_info"));
         loginButton.setFragment(this);
@@ -162,7 +192,7 @@ public class MainFragment extends Fragment {
         Profile profile = Profile.getCurrentProfile();
         if(profile!=null)
         {
-            System.out.println("PROFILE-->"+profile.getLinkUri());
+            System.out.println("PROFILE-->" + profile.getLinkUri());
 
         }
 
@@ -178,7 +208,7 @@ public class MainFragment extends Fragment {
     private void displayMessage(Profile profile){
         if(profile != null){
 
-            textView.setText(profile.getName());
+
             Uri uri = profile.getProfilePictureUri(100,100);
             String url = uri.toString();
             System.out.println("FBURL-->" + url);
