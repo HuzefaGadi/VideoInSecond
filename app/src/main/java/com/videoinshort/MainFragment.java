@@ -164,6 +164,7 @@ public class MainFragment extends Fragment {
         {
             Intent intent = new Intent(getActivity(),MyActivity.class);
             startActivity(intent);
+            getActivity().finish();
         }
         else
         {

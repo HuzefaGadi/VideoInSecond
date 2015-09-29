@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/progressBar"
-        android:background="#0099cc" >
+        android:background="#ffdc5d4f" >
 
         <WebView
             android:id="@+id/webview"
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:background="#ED673D"
+        android:background="#ffdc5d4f"
         android:visibility="gone" >
 
         <TextView

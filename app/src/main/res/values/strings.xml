@@ -8,6 +8,6 @@
     <string name="app_id">1608515809402380</string>
 
 <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_facebook">FacebookActivity</string>
+    <string name="hello_blank_fragment">VideoInShort</string>
+    <string name="title_activity_facebook">VideoInShort</string>
 </resources>
