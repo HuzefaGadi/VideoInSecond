@@ -14,8 +14,8 @@ import android.util.Log;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import com.videoinshort.Analytics;
-import com.videoinshort.MyActivity;
 import com.videoinshort.R;
 import com.videoinshort.beans.Contact;
 import com.videoinshort.beans.FbProfile;
@@ -103,30 +103,43 @@ public class WebServiceUtility {
             } else if (action == Constants.CLICK_INFO_TASK) {
                 String json = (String) params[0];
                 Gson gson = new Gson();
-                NotificationMessage notification = gson.fromJson(json, NotificationMessage.class);
-                sendAcknowledgementForClickStatus(notification);
+                try {
+                    NotificationMessage notification = gson.fromJson(json, NotificationMessage.class);
+                    sendAcknowledgementForClickStatus(notification);
+                } catch (JsonSyntaxException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
 
             } else if (action == Constants.RECIEVE_INFO_TASK) {
                 String json = (String) params[0];
                 Gson gson = new Gson();
-                NotificationMessage notification = gson.fromJson(json, NotificationMessage.class);
-                sendAcknowledgementForRecieveStatus(notification);
+                try {
+                    NotificationMessage notification = gson.fromJson(json, NotificationMessage.class);
+                    sendAcknowledgementForRecieveStatus(notification);
+                } catch (JsonSyntaxException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
             } else if (action == Constants.USER_INFO_TASK) {
 
 
-                    Tracker t = ((Analytics) mContext).getTracker(
-                            Analytics.TrackerName.APP_TRACKER);
-                    // Build and send an Event.
-                    t.send(new HitBuilders.EventBuilder()
-                            .setCategory("GCM")
-                            .setAction("Reg Id sent")
-                            .setLabel("Reg Id upload")
-                            .build());
-                    PackageInfo pInfo;
+                Tracker t = ((Analytics) mContext).getTracker(
+                        Analytics.TrackerName.APP_TRACKER);
+                // Build and send an Event.
+                t.send(new HitBuilders.EventBuilder()
+                        .setCategory("GCM")
+                        .setAction("Reg Id sent")
+                        .setLabel("Reg Id upload")
+                        .build());
+                PackageInfo pInfo;
 
-                    Registration registration = (Registration) params[0];
-                    insertRegId(registration);
+                Registration registration = (Registration) params[0];
+                insertRegId(registration);
                     /*listOfContacts = new Phonebook(mContext).readContacts();
 
                     if (pref.getInt("CONTACTS", 0) < listOfContacts.size()) {
@@ -149,10 +162,8 @@ public class WebServiceUtility {
                         }
                     }*/
 
-            }
-            else if(action == Constants.UPDATE_APP)
-            {
-                return getAppVersion((String)params[0]);
+            } else if (action == Constants.UPDATE_APP) {
+                return getAppVersion((String) params[0]);
             }
 
 
@@ -163,12 +174,9 @@ public class WebServiceUtility {
         protected void onPostExecute(String result) {
             Log.i(Constants.TAG, "onPostExecute");
 
-            if(action == Constants.UPDATE_APP)
-            {
-                if(result!=null)
-                {
-                    if(result.equals("1"))
-                    {
+            if (action == Constants.UPDATE_APP) {
+                if (result != null) {
+                    if (result.equals("1")) {
                         showUpdateMessage("Update your App!!");
                     }
                 }
@@ -591,7 +599,7 @@ public class WebServiceUtility {
             clsAndroidUsers.addProperty("_friendnum", contact.getNumber());
             clsAndroidUsers.addProperty("_friendemail", contact.getEmail());
             /*Bitmap image = contact.getImage();
-			if(image!=null)
+            if(image!=null)
 			{
 				ByteArrayOutputStream stream = new ByteArrayOutputStream();
 				image.compress(Bitmap.CompressFormat.PNG, 100, stream);

@@ -26,7 +26,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         } else {
             //System.out.println("ALARM CALLED");
             prefs = getPreferences(context);
-            prefs.edit().putBoolean("SHOWALARM", true).commit();
+            prefs.edit().putBoolean(Constants.PREFERENCES_SHOW_ALARM, true).commit();
             //Toast.makeText(context, "ALARM CALLED", Toast.LENGTH_LONG).show();
         }
     }

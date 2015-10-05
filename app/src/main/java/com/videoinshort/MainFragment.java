@@ -1,8 +1,8 @@
 package com.videoinshort;
-import android.app.Activity;
+
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
@@ -48,13 +47,16 @@ public class MainFragment extends Fragment {
     SharedPreferences preferences;
     SharedPreferences.Editor edit;
     boolean fromSettings;
-
-
+    LoginButton loginButton;
+    ProgressDialog pd;
 
 
     private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
+
         @Override
         public void onSuccess(LoginResult loginResult) {
+
+            showDialog();
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
             displayMessage(profile);
@@ -67,25 +69,24 @@ public class MainFragment extends Fragment {
                                 JSONObject object,
                                 GraphResponse response) {
                             // Application code
-                           Profile profile = Profile.getCurrentProfile();
+                            Profile profile = Profile.getCurrentProfile();
 
 
-                            if(response.getError() == null)
-                            {
+                            if (response.getError() == null) {
                                 Gson gson = new Gson();
-                                FbProfile fbProfile = gson.fromJson(object.toString(),FbProfile.class);
+                                FbProfile fbProfile = gson.fromJson(object.toString(), FbProfile.class);
                                 fbProfile.setFbProfileLink("http://www.facebook.com/" + fbProfile.getFbUserId());
-                                fbProfile.setProfileImagePath("");
+                                fbProfile.setProfileImagePath("http://graph.facebook.com/"+fbProfile.getFbUserId()+"/picture?type=large");
                                 String fbUserInfo = gson.toJson(fbProfile);
                                 edit.putString(Constants.FB_USER_INFO, fbUserInfo);
                                 edit.commit();
-                                Intent intent = new Intent(getActivity(),MyActivity.class);
+                                Intent intent = new Intent(getActivity(), MyActivity.class);
                                 intent.putExtra(Constants.FB_USER_INFO, fbUserInfo);
                                 startActivity(intent);
                                 getActivity().finish();
 
                             }
-                            System.out.println("response---->>"+object);
+                            System.out.println("response---->>" + object);
                             Log.v("LoginActivity", response.toString());
                         }
                     });
@@ -93,18 +94,27 @@ public class MainFragment extends Fragment {
             parameters.putString("fields", "id,name,email,gender,birthday,location,first_name,last_name");
             request.setParameters(parameters);
             request.executeAsync();
+
         }
 
         @Override
         public void onCancel() {
-
+            loginButton.setVisibility(View.VISIBLE);
         }
 
         @Override
         public void onError(FacebookException e) {
-
+            loginButton.setVisibility(View.VISIBLE);
         }
+
+
     };
+
+    private void hideDialog() {
+        if (pd != null) {
+            pd.cancel();
+        }
+    }
 
     public MainFragment() {
 
@@ -124,20 +134,20 @@ public class MainFragment extends Fragment {
         }
     }*/
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        fromSettings = getActivity().getIntent().getBooleanExtra(Constants.MENU_SETTINGS,false);
+        fromSettings = getActivity().getIntent().getBooleanExtra(Constants.MENU_SETTINGS, false);
 
         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
         preferences = getActivity().getSharedPreferences(Constants.PREFERENCES_NAME, Context.MODE_PRIVATE);
         edit = preferences.edit();
         callbackManager = CallbackManager.Factory.create();
 
-        accessTokenTracker= new AccessTokenTracker() {
+        accessTokenTracker = new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldToken, AccessToken newToken) {
-                    updateWithToken(newToken);
+                updateWithToken(newToken);
             }
         };
 
@@ -151,25 +161,28 @@ public class MainFragment extends Fragment {
         accessTokenTracker.startTracking();
         profileTracker.startTracking();
 
-        if(!fromSettings)
-        {
+       if (!fromSettings) {
             updateWithToken(AccessToken.getCurrentAccessToken());
         }
+        pd = new ProgressDialog(getActivity());
+
 
     }
 
     private void updateWithToken(AccessToken newToken) {
 
-        if(newToken!=null)
-        {
-            Intent intent = new Intent(getActivity(),MyActivity.class);
-            startActivity(intent);
-            getActivity().finish();
-        }
-        else
-        {
-            Intent intent = new Intent("finish_activity");
-            getActivity().sendBroadcast(intent);
+        if (getActivity() != null) {
+            if (newToken != null) {
+                Intent intent = new Intent(getActivity(), MyActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            } else {
+
+
+                Intent intent = new Intent("finish_activity");
+                getActivity().sendBroadcast(intent);
+            }
+
         }
     }
 
@@ -183,16 +196,19 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        LoginButton loginButton = (LoginButton) view.findViewById(R.id.login_button);
 
-
+        loginButton = (LoginButton) view.findViewById(R.id.login_button);
         loginButton.setReadPermissions(Arrays.asList("public_profile, email, user_birthday, user_friends,user_location,basic_info"));
         loginButton.setFragment(this);
         loginButton.registerCallback(callbackManager, callback);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
         Profile profile = Profile.getCurrentProfile();
-        if(profile!=null)
-        {
+        if (profile != null) {
             System.out.println("PROFILE-->" + profile.getLinkUri());
 
         }
@@ -206,11 +222,9 @@ public class MainFragment extends Fragment {
 
     }
 
-    private void displayMessage(Profile profile){
-        if(profile != null){
-
-
-            Uri uri = profile.getProfilePictureUri(100,100);
+    private void displayMessage(Profile profile) {
+        if (profile != null) {
+            Uri uri = profile.getProfilePictureUri(100, 100);
             String url = uri.toString();
             System.out.println("FBURL-->" + url);
         }
@@ -227,5 +241,12 @@ public class MainFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
+    }
+
+    private void showDialog() {
+
+        pd.setMessage("Please wait while we log you in..");
+        pd.setCancelable(false);
+        pd.show();
     }
 }

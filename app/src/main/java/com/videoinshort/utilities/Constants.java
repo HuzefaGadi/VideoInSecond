@@ -16,6 +16,9 @@ public class Constants {
      */
     public static final String TAG = "GCM";
 
+    public static final String PREFERENCES_ALREADY_RATED = "ALREADYRATED";
+    public static final String PREFERENCES_SHOW_ALARM = "SHOWALARM";
+
 
     public static final String QUIZ_FEED_URL = "http://www.videoinshort.com/todays-picks";
     public static final String url = "http://www.videoinshort.com/todays-picks";

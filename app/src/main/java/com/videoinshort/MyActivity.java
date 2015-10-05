@@ -71,24 +71,12 @@ import com.videoinshort.utilities.WebServiceUtility;
 
 public class MyActivity extends Activity {
     private ProgressBar progress;
-    //private ProgressDialog prgDialog;
     protected WebView mainWebView;
-    /*private final String REGID_URL = "http://m.buzzonn.com/BuzzonFBList.asmx";
-    private final String REGID_SOAP_ACTION = "http://tempuri.org/insertRegId";
-	private final String REGID_METHOD_NAME = "insertRegId";*/
-
-    public final String REGID_CALL = "1";
-    public final String CONTACT_CALL = "2";
-
-
     private Context mContext;
     private String responseFromService;
     private WebView mWebviewPop;
     private FrameLayout mContainer;
     CookieManager cookieManager;
-
-
-
     /**
      * Substitute you own sender ID here. This is the project number you got
      * from the API Console, as described in "Getting Started."
@@ -118,8 +106,13 @@ public class MyActivity extends Activity {
             mContainer.removeView(mWebviewPop);
             mWebviewPop = null;
         } else {
-            super.onBackPressed();
-            finish();
+            if(mainWebView.canGoBack()){
+                mainWebView.goBack();
+            }else{
+                super.onBackPressed();
+                finish();
+            }
+
         }
     }
 
@@ -348,7 +341,7 @@ public class MyActivity extends Activity {
         super.onStart();
 
         SharedPreferences pref = getPreferences(this);
-        if (pref.getBoolean("SHOWALARM", false) && !pref.getBoolean("ALREADYRATED", false)) {
+        if (pref.getBoolean(Constants.PREFERENCES_SHOW_ALARM, false) && !pref.getBoolean(Constants.PREFERENCES_ALREADY_RATED, false)) {
             rateUs("You are awesome! If you feel the same about VideoInShort, please take a moment to rate it.");
         }
         GoogleAnalytics.getInstance(this).reportActivityStart(this);
@@ -431,8 +424,8 @@ public class MyActivity extends Activity {
             public void onClick(DialogInterface dialog, int id) {
 
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getApplicationContext().getPackageName())));
-                prefs.edit().putBoolean("SHOWALARM", false).commit();
-                prefs.edit().putBoolean("ALREADYRATED", true).commit();
+                prefs.edit().putBoolean(Constants.PREFERENCES_SHOW_ALARM, false).commit();
+                prefs.edit().putBoolean(Constants.PREFERENCES_ALREADY_RATED, true).commit();
 
             }
         });
@@ -442,7 +435,7 @@ public class MyActivity extends Activity {
             public void onClick(DialogInterface dialog, int id) {
 
                 dialog.cancel();
-                prefs.edit().putBoolean("SHOWALARM", false).commit();
+                prefs.edit().putBoolean(Constants.PREFERENCES_SHOW_ALARM, false).commit();
 
             }
         });
@@ -452,8 +445,8 @@ public class MyActivity extends Activity {
             public void onClick(DialogInterface dialog, int id) {
 
                 dialog.cancel();
-                prefs.edit().putBoolean("SHOWALARM", false).commit();
-                prefs.edit().putBoolean("ALREADYRATED", true).commit();
+                prefs.edit().putBoolean(Constants.PREFERENCES_SHOW_ALARM, false).commit();
+                prefs.edit().putBoolean(Constants.PREFERENCES_ALREADY_RATED, true).commit();
 
             }
         });
@@ -624,6 +617,7 @@ public class MyActivity extends Activity {
                         String responseFromFb = pref.getString(Constants.FB_USER_INFO, null);
                         if (responseFromFb != null) {
                             fbProfile = new Gson().fromJson(responseFromFb, FbProfile.class);
+                            new WebServiceUtility(getApplicationContext(), Constants.SEND_FACEBOOK_DATA, fbProfile);
                         }
                     } else {
                         new WebServiceUtility(getApplicationContext(), Constants.SEND_FACEBOOK_DATA, fbProfile);
