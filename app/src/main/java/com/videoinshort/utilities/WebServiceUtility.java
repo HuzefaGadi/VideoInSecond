@@ -376,7 +376,7 @@ public class WebServiceUtility {
         //Property which holds input parameters
         PropertyInfo clickStatus = new PropertyInfo();
         //Set Name
-        clickStatus.setName("clickstatus");
+        clickStatus.setName("clickStatus");
         //Set Value
         clickStatus.setValue("1");
         //Set dataType
