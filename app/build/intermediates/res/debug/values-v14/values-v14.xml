@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/huzefaasger/Downloads/Buzzonn1/app/src/main/res/values-v14/styles.xml -->
+    <!-- From: file:/C:/Users/huzefaasger/StudioProjects/VideoInSecond/app/src/main/res/values-v14/styles.xml -->
     <eat-comment/>
-    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- API 14 theme customizations can go here. -->
+    <style name="ActionBar.Solid.Actionbarchange" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:background">@drawable/ab_solid_actionbarchange</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_actionbarchange</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_actionbarchange</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Actionbarchange</item>
     </style>
-    <!-- From: file:/C:/Users/huzefaasger/Downloads/Buzzonn1/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values-v14/values-v14.xml -->
+    <style name="ActionBar.Transparent.Actionbarchange" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_actionbarchange</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Actionbarchange</item>
+    </style>
+    <!-- From: file:/C:/Users/huzefaasger/StudioProjects/VideoInSecond/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values-v14/values-v14.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat.Button">
         <item name="android:textSize">@dimen/abc_text_size_button_material</item>
@@ -33,4 +40,23 @@
     </style>
     <style name="TextAppearance.StatusBar.EventContent.Time"/>
     <style name="TextAppearance.StatusBar.EventContent.Title" parent="@android:style/TextAppearance.StatusBar.EventContent.Title"/>
+    <!-- From: file:/C:/Users/huzefaasger/StudioProjects/VideoInSecond/app/src/main/res/values-v14/styles.xml -->
+    <eat-comment/>
+    <style name="Theme.Actionbarchange" parent="@style/Theme.AppCompat.Light">
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_actionbarchange</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Actionbarchange</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Actionbarchange</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Actionbarchange</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Actionbarchange</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Actionbarchange</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_actionbarchange</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_actionbarchange</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Actionbarchange</item>
+        
+        
+    </style>
+    <style name="Theme.Actionbarchange.Widget" parent="@style/Theme.AppCompat">
+        <item name="android:popupMenuStyle">@style/PopupMenu.Actionbarchange</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Actionbarchange</item>
+    </style>
 </resources>

@@ -2,5 +2,5 @@
 <resources>
     <integer name="ga_sessionTimeout">60</integer>
     <!-- change the following line  -->
-    <string name="ga_trackingId">UA-62785054-1</string>
-</resources><!-- From: file:/C:/Users/huzefaasger/Downloads/Buzzonn1/app/src/main/res/xml/ecommerce_tracker.xml -->
+    <string name="ga_trackingId">UA-67268774-1</string>
+</resources><!-- From: file:/C:/Users/huzefaasger/StudioProjects/VideoInSecond/app/src/main/res/xml/ecommerce_tracker.xml -->
