@@ -1,4 +1,4 @@
-package com.videoinshort.utilities;
+package com.vis.utilities;
 
 /**
  * Created by huzefaasger on 07-09-2015.

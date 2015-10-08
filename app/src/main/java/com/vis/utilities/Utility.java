@@ -1,4 +1,4 @@
-package com.videoinshort.utilities;
+package com.vis.utilities;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

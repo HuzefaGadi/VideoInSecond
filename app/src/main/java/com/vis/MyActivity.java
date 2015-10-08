@@ -1,18 +1,4 @@
-package com.videoinshort;
-
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Calendar;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.regex.Pattern;
-
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.PropertyInfo;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapPrimitive;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
+package com.vis;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -34,7 +20,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
-
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,14 +37,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.videoinshort.Analytics.TrackerName;
-import com.videoinshort.beans.Contact;
-import com.videoinshort.beans.FbProfile;
-import com.videoinshort.beans.NotificationMessage;
-import com.videoinshort.beans.Registration;
-import com.videoinshort.utilities.Constants;
-import com.videoinshort.utilities.Phonebook;
-import com.videoinshort.utilities.Utility;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -67,7 +44,16 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.gson.Gson;
-import com.videoinshort.utilities.WebServiceUtility;
+import com.vis.Analytics.TrackerName;
+import com.vis.beans.FbProfile;
+import com.vis.beans.Registration;
+import com.vis.utilities.Constants;
+import com.vis.utilities.Utility;
+import com.vis.utilities.WebServiceUtility;
+
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MyActivity extends Activity {
     private ProgressBar progress;
@@ -106,9 +92,9 @@ public class MyActivity extends Activity {
             mContainer.removeView(mWebviewPop);
             mWebviewPop = null;
         } else {
-            if(mainWebView.canGoBack()){
+            if (mainWebView.canGoBack()) {
                 mainWebView.goBack();
-            }else{
+            } else {
                 super.onBackPressed();
                 finish();
             }
@@ -157,6 +143,10 @@ public class MyActivity extends Activity {
         webSettings.setAppCacheEnabled(true);
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
         webSettings.setSupportMultipleWindows(true);
+        webSettings.setUserAgentString(
+                webSettings.getUserAgentString()
+                        + " "
+                        + "VideoInShortApp");
         mainWebView.setWebViewClient(new MyCustomWebViewClient());
         mainWebView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
         mainWebView.setWebChromeClient(new MyCustomChromeClient());
@@ -198,7 +188,7 @@ public class MyActivity extends Activity {
             AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
             int interval = 1000 * 60 * 60 * 24 * 7;
             int startTime = 1000 * 60 * 60 * 24 * 5;
-			/*int interval = 1000 * 60 * 1;
+            /*int interval = 1000 * 60 * 1;
 				int startTime = 1000 * 60 * 1;*/
 			/* Set the alarm to start at 10:30 AM */
             Calendar calendar = Calendar.getInstance();

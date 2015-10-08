@@ -1,4 +1,4 @@
-package com.videoinshort.beans;
+package com.vis.beans;
 
 import com.google.gson.annotations.SerializedName;
 

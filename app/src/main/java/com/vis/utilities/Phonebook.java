@@ -1,4 +1,4 @@
-package com.videoinshort.utilities;
+package com.vis.utilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.provider.ContactsContract;
 
-import com.videoinshort.beans.Contact;
+import com.vis.beans.Contact;
 
 public class Phonebook {
 	

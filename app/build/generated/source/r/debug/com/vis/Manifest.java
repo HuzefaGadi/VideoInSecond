@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.videoinshort;
+package com.vis;
 
 public final class Manifest {
     public static final class permission {
@@ -16,6 +16,6 @@ public final class Manifest {
            where PACKAGE is the application's package name.
     
          */
-        public static final String C2D_MESSAGE="com.videoinshort.permission.C2D_MESSAGE";
+        public static final String C2D_MESSAGE="com.vis.permission.C2D_MESSAGE";
     }
 }

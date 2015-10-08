@@ -23,6 +23,6 @@
 
     <integer name="ga_sessionTimeout">-1</integer>
 
-    <string name="com.videoinshort.MyActivity">VideoInShortMyActivity</string>
+    <string name="com.vis.MyActivity">VideoInShortMyActivity</string>
 
 </resources>

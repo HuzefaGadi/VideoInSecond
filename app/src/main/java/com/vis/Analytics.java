@@ -1,4 +1,4 @@
-package com.videoinshort;
+package com.vis;
 
 import java.util.HashMap;
 

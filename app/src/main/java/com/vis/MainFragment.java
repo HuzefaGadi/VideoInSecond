@@ -1,4 +1,4 @@
-package com.videoinshort;
+package com.vis;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -25,8 +25,8 @@ import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.gson.Gson;
-import com.videoinshort.beans.FbProfile;
-import com.videoinshort.utilities.Constants;
+import com.vis.beans.FbProfile;
+import com.vis.utilities.Constants;
 
 import org.json.JSONObject;
 

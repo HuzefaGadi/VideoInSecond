@@ -1,4 +1,4 @@
-package com.videoinshort.beans;
+package com.vis.beans;
 
 import android.graphics.Bitmap;
 

@@ -27,7 +27,7 @@
            where PACKAGE is the application's package name.
     -->
     <permission
-        android:name="com.videoinshort.permission.C2D_MESSAGE"
+        android:name="com.vis.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.buzzon.permission.C2D_MESSAGE" />
@@ -46,7 +46,7 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
-        android:name="com.videoinshort.Analytics"
+        android:name="com.vis.Analytics"
         android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -63,7 +63,7 @@
             android:value="@string/app_id" />
 
         <activity
-            android:name="com.videoinshort.FacebookActivity"
+            android:name="com.vis.FacebookActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
@@ -75,7 +75,7 @@
         </activity>
 
         <receiver
-            android:name="com.videoinshort.GcmBroadcastReceiver"
+            android:name="com.vis.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
 
@@ -92,16 +92,16 @@
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <service android:name="com.videoinshort.GcmIntentService" />
+        <service android:name="com.vis.GcmIntentService" />
 
-        <receiver android:name="com.videoinshort.AlarmReceiver" >
+        <receiver android:name="com.vis.AlarmReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <activity
-            android:name="com.videoinshort.MyActivity"
+            android:name="com.vis.MyActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_facebook" >
         </activity>

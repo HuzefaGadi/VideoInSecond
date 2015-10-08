@@ -1,4 +1,4 @@
-package com.videoinshort.beans;
+package com.vis.beans;
 
 public class NotificationMessage {
 	private String uid;

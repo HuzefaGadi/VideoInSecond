@@ -169,7 +169,7 @@ uses-permission#android.permission.WAKE_LOCK
 ADDED from AndroidManifest.xml:21:5
 	android:name
 		ADDED from AndroidManifest.xml:21:22
-permission#com.videoinshort.permission.C2D_MESSAGE
+permission#com.vis.permission.C2D_MESSAGE
 ADDED from AndroidManifest.xml:29:5
 	android:protectionLevel
 		ADDED from AndroidManifest.xml:31:9
@@ -351,7 +351,7 @@ ADDED from AndroidManifest.xml:55:9
 		ADDED from AndroidManifest.xml:57:13
 	android:name
 		ADDED from AndroidManifest.xml:56:13
-activity#com.videoinshort.FacebookActivity
+activity#com.vis.FacebookActivity
 ADDED from AndroidManifest.xml:59:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:63:13
@@ -371,7 +371,7 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:67:17
 	android:name
 		ADDED from AndroidManifest.xml:67:27
-receiver#com.videoinshort.GcmBroadcastReceiver
+receiver#com.vis.GcmBroadcastReceiver
 ADDED from AndroidManifest.xml:71:9
 	android:permission
 		ADDED from AndroidManifest.xml:73:13
@@ -397,11 +397,11 @@ ADDED from AndroidManifest.xml:83:9
 		ADDED from AndroidManifest.xml:87:13
 	android:name
 		ADDED from AndroidManifest.xml:84:13
-service#com.videoinshort.GcmIntentService
+service#com.vis.GcmIntentService
 ADDED from AndroidManifest.xml:89:9
 	android:name
 		ADDED from AndroidManifest.xml:89:18
-receiver#com.videoinshort.AlarmReceiver
+receiver#com.vis.AlarmReceiver
 ADDED from AndroidManifest.xml:91:9
 	android:name
 		ADDED from AndroidManifest.xml:91:19
@@ -411,7 +411,7 @@ action#android.intent.action.BOOT_COMPLETED
 ADDED from AndroidManifest.xml:93:17
 	android:name
 		ADDED from AndroidManifest.xml:93:25
-activity#com.videoinshort.MyActivity
+activity#com.vis.MyActivity
 ADDED from AndroidManifest.xml:97:9
 	android:label
 		ADDED from AndroidManifest.xml:100:13

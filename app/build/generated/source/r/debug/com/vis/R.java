@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.videoinshort;
+package com.vis;
 
 public final class R {
     public static final class anim {

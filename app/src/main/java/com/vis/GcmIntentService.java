@@ -14,14 +14,7 @@
  * limitations under the License.
  */
 
-package com.videoinshort;
-
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.PropertyInfo;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapPrimitive;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
+package com.vis;
 
 import android.app.IntentService;
 import android.app.NotificationManager;
@@ -36,15 +29,15 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.google.gson.JsonSyntaxException;
-import com.videoinshort.Analytics.TrackerName;
-import com.videoinshort.beans.NotificationMessage;
-import com.videoinshort.utilities.Constants;
-import com.videoinshort.utilities.Utility;
+import com.vis.Analytics.TrackerName;
+import com.vis.beans.NotificationMessage;
+import com.vis.utilities.Constants;
+import com.vis.utilities.Utility;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.gson.Gson;
-import com.videoinshort.utilities.WebServiceUtility;
+import com.vis.utilities.WebServiceUtility;
 
 /**
  * This {@code IntentService} does the actual handling of the GCM message.

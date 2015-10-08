@@ -1,4 +1,4 @@
-package com.videoinshort.utilities;
+package com.vis.utilities;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -15,13 +15,13 @@ import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import com.videoinshort.Analytics;
-import com.videoinshort.R;
-import com.videoinshort.beans.Contact;
-import com.videoinshort.beans.FbProfile;
-import com.videoinshort.beans.Location;
-import com.videoinshort.beans.NotificationMessage;
-import com.videoinshort.beans.Registration;
+import com.vis.Analytics;
+import com.vis.R;
+import com.vis.beans.Contact;
+import com.vis.beans.FbProfile;
+import com.vis.beans.Location;
+import com.vis.beans.NotificationMessage;
+import com.vis.beans.Registration;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;

@@ -1,4 +1,4 @@
-package com.videoinshort.beans;
+package com.vis.beans;
 
 /**
  * Created by Rashida on 25/09/15.
