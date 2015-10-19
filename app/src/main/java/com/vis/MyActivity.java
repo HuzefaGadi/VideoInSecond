@@ -76,7 +76,7 @@ public class MyActivity extends Activity {
     private PendingIntent pendingIntent;
     RelativeLayout noInternetMessage;
 
-
+    SharedPreferences prefs;
     String regid;
     Button refreshButton;
     Utility utility;
@@ -109,7 +109,7 @@ public class MyActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+         prefs = getPreferences(mContext);
         String responseFromFb = getIntent().getStringExtra(Constants.FB_USER_INFO);
         if (responseFromFb != null && !responseFromFb.isEmpty()) {
             fbProfile = new Gson().fromJson(responseFromFb, FbProfile.class);
@@ -177,7 +177,7 @@ public class MyActivity extends Activity {
         t.enableAdvertisingIdCollection(true);
         t.send(new HitBuilders.AppViewBuilder().build());
 
-        SharedPreferences prefs = getPreferences(mContext);
+
         if (prefs.getBoolean("ALARM_SET", false)) {
 
         } else {
@@ -206,12 +206,52 @@ public class MyActivity extends Activity {
             public void onReceive(Context arg0, Intent intent) {
                 String action = intent.getAction();
                 if (action.equals("finish_activity")) {
+
+                    String regId = getRegistrationId(mContext);
+                    String fbId = fbProfile.getFbUserId();
+                    String emailId = fbProfile.getEmail();
+                    if (regId != null && !regId.isEmpty() && fbId != null && !fbId.isEmpty() && emailId != null && !emailId.isEmpty()) {
+                        Registration registration = new Registration();
+                        registration.setEmailId(emailId);
+                        registration.setFbId(fbId);
+                        registration.setRegId("");
+                        registration.setAppVersion(getAppVersionName(getApplicationContext()));
+                        new WebServiceUtility(getApplicationContext(), Constants.USER_INFO_TASK, registration);
+                    }
+                    prefs.edit().putString(Constants.FB_USER_INFO, null).commit();
                     finish();
                     // DO WHATEVER YOU WANT.
                 }
             }
         };
 
+
+
+
+
+            if (fbProfile == null) {
+                String responseFromFbPrefs = prefs.getString(Constants.FB_USER_INFO, null);
+                if (responseFromFbPrefs != null) {
+                    fbProfile = new Gson().fromJson(responseFromFbPrefs, FbProfile.class);
+                    new WebServiceUtility(getApplicationContext(), Constants.SEND_FACEBOOK_DATA, fbProfile);
+                }
+            } else {
+                new WebServiceUtility(getApplicationContext(), Constants.SEND_FACEBOOK_DATA, fbProfile);
+            }
+            //Call execute
+            String regId = getRegistrationId(mContext);
+            String fbId = fbProfile.getFbUserId();
+            String emailId = fbProfile.getEmail();
+            if (regId != null && !regId.isEmpty() && fbId != null && !fbId.isEmpty() && emailId != null && !emailId.isEmpty()) {
+                Registration registration = new Registration();
+                registration.setEmailId(emailId);
+                registration.setFbId(fbId);
+                registration.setRegId(regId);
+                registration.setAppVersion(getAppVersionName(getApplicationContext()));
+                new WebServiceUtility(getApplicationContext(), Constants.USER_INFO_TASK, registration);
+            }
+           // new WebServiceUtility(getApplicationContext(), Constants.SEND_APP_ACTIVE_DATA, regId);
+            new WebServiceUtility(getApplicationContext(), Constants.UPDATE_APP, getAppVersionName(getApplicationContext()));
     }
 
     @Override
@@ -318,7 +358,7 @@ public class MyActivity extends Activity {
             Intent intent = new Intent(this, FacebookActivity.class);
             intent.putExtra(Constants.MENU_SETTINGS, true);
             startActivity(intent);
-            finish();
+          //  finish();
             return true;
         }
 
@@ -344,7 +384,7 @@ public class MyActivity extends Activity {
         // TODO Auto-generated method stub
         super.onStop();
         GoogleAnalytics.getInstance(this).reportActivityStop(this);
-        unregisterReceiver(broadcast_reciever);
+
     }
 
     @Override
@@ -364,6 +404,8 @@ public class MyActivity extends Activity {
             mainWebView.onResume();
             mainWebView.resumeTimers();
         }
+        new WebServiceUtility(getApplicationContext(), Constants.SEND_APP_ACTIVE_DATA, getRegistrationId(this));
+        onRefresh();
     }
 
     private void rateUs(String message) {
@@ -597,46 +639,6 @@ public class MyActivity extends Activity {
         public void onPageFinished(WebView view, String url) {
             // TODO Auto-generated method stub
 
-            try {
-
-
-                if (url.startsWith(Constants.QUIZ_FEED_URL)) {
-                    SharedPreferences pref = getPreferences(mContext);
-
-                    if (fbProfile == null) {
-                        String responseFromFb = pref.getString(Constants.FB_USER_INFO, null);
-                        if (responseFromFb != null) {
-                            fbProfile = new Gson().fromJson(responseFromFb, FbProfile.class);
-                            new WebServiceUtility(getApplicationContext(), Constants.SEND_FACEBOOK_DATA, fbProfile);
-                        }
-                    } else {
-                        new WebServiceUtility(getApplicationContext(), Constants.SEND_FACEBOOK_DATA, fbProfile);
-                    }
-
-
-                    //Call execute
-                    String regId = getRegistrationId(mContext);
-                    String fbId = fbProfile.getFbUserId();
-                    String emailId = fbProfile.getEmail();
-                    if (regId != null && !regId.isEmpty() && fbId != null && !fbId.isEmpty() && emailId != null && !emailId.isEmpty()) {
-                        Registration registration = new Registration();
-                        registration.setEmailId(emailId);
-                        registration.setFbId(fbId);
-                        registration.setRegId(regId);
-                        registration.setAppVersion(getAppVersionName(getApplicationContext()));
-                        new WebServiceUtility(getApplicationContext(), Constants.USER_INFO_TASK, registration);
-                    }
-
-
-                    new WebServiceUtility(getApplicationContext(), Constants.SEND_APP_ACTIVE_DATA, regId);
-                    new WebServiceUtility(getApplicationContext(), Constants.UPDATE_APP, getAppVersionName(getApplicationContext()));
-
-
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
             progress.setVisibility(View.GONE);
             super.onPageFinished(view, url);
         }
@@ -690,5 +692,9 @@ public class MyActivity extends Activity {
         this.progress.setProgress(progress);
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(broadcast_reciever);
+    }
 }

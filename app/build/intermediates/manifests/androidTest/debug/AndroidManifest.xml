@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.videoinshort.test">
+    package="com.vis.test">
 
     <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="13" />
 
@@ -9,8 +9,8 @@
     </application>
 
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="com.videoinshort"
+                     android:targetPackage="com.vis"
                      android:handleProfiling="false"
                      android:functionalTest="false"
-                     android:label="Tests for com.videoinshort"/>
+                     android:label="Tests for com.vis"/>
 </manifest>

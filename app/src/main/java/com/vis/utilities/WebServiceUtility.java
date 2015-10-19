@@ -418,6 +418,7 @@ public class WebServiceUtility {
             SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
             //Assign it to fahren static variable
             String responseFromService = response.toString();
+            Log.d("vis",responseFromService);
             System.out.println("Response from CLICK status" + responseFromService);
         } catch (Exception e) {
             e.printStackTrace();
