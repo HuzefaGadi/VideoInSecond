@@ -429,7 +429,7 @@ public class WebServiceUtility {
                                                           notification) {
 
         //Create request
-        SoapObject request = new SoapObject(Constants.NAMESPACE, Constants.ACK_METHOD_NAME);
+        SoapObject request = new SoapObject(Constants.NAMESPACE, Constants.CLICK_ACK_METHOD_NAME);
         //Property which holds input parameters
         PropertyInfo userId = new PropertyInfo();
         //Set Name
@@ -460,20 +460,9 @@ public class WebServiceUtility {
         //Set dataType
         clickStatus.setType(String.class);
 
-        //Property which holds input parameters
-        PropertyInfo recStatus = new PropertyInfo();
-        //Set Name
-        recStatus.setName("receiveStatus");
-        //Set Value
-        recStatus.setValue("1");
-        //Set dataType
-        recStatus.setType(String.class);
-
-
         //Add the property to request object
         request.addProperty(userId);
         request.addProperty(notificationId);
-        request.addProperty(recStatus);
         request.addProperty(clickStatus);
 
 
@@ -487,11 +476,11 @@ public class WebServiceUtility {
 
         //Create HTTP call object
 
-        HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.ACK_URL);
+        HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.CLICK_ACK_URL);
 
         try {
             //Invole web service
-            androidHttpTransport.call(Constants.ACK_SOAP_ACTION, envelope);
+            androidHttpTransport.call(Constants.CLICK_ACK_SOAP_ACTION, envelope);
             //Get the response
             SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
             //Assign it to fahren static variable

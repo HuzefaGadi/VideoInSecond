@@ -145,7 +145,7 @@ public class MyActivity extends Activity {
         webSettings.setUserAgentString(
                 webSettings.getUserAgentString()
                         + " "
-                        + "VideoInShortApp");
+                        + Constants.USER_AGENT_POSTFIX);
         mainWebView.setWebViewClient(new MyCustomWebViewClient());
         mainWebView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
         mainWebView.setWebChromeClient(new MyCustomChromeClient());

@@ -45,8 +45,8 @@ public class Constants {
     public static final String ACK_METHOD_NAME = "SendClickReceiveNotiFication";
 
     public static final String CLICK_ACK_URL = "http://service.videoinshort.com/savefbuserdata.asmx";
-    public static final String CLICK_ACK_SOAP_ACTION = "http://tempuri.org/SendClickReceiveNotiFication";
-    public static final String CLICK_ACK_METHOD_NAME = "SendClickReceiveNotiFication";
+    public static final String CLICK_ACK_SOAP_ACTION = "http://tempuri.org/SendClickNotiFication";
+    public static final String CLICK_ACK_METHOD_NAME = "SendClickNotiFication";
 
     public static final String ACTIVE_URL = "http://service.videoinshort.com/savefbuserdata.asmx";
     public static final String ACTIVE_SOAP_ACTION = "http://tempuri.org/AppActive";
@@ -65,6 +65,7 @@ public class Constants {
     public static final int CLICK_INFO_TASK = 4;
     public static final int USER_INFO_TASK = 5;
     public static final int UPDATE_APP = 6;
+    public static final String USER_AGENT_POSTFIX = "VideoInShortWithFacebook";
     public static String SEND_REG_ID = "REGID";
     public static String SEND_CONTACTS = "CONTACTS";
 }
