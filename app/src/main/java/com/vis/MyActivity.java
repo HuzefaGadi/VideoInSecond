@@ -48,6 +48,7 @@ import com.vis.Analytics.TrackerName;
 import com.vis.beans.FbProfile;
 import com.vis.beans.Registration;
 import com.vis.utilities.Constants;
+import com.vis.utilities.JavaScriptInterface;
 import com.vis.utilities.Utility;
 import com.vis.utilities.WebServiceUtility;
 
@@ -110,12 +111,12 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        JavaScriptInterface jsInterface = new JavaScriptInterface(this);
         String responseFromFb = getIntent().getStringExtra(Constants.FB_USER_INFO);
         if (responseFromFb != null && !responseFromFb.isEmpty()) {
             fbProfile = new Gson().fromJson(responseFromFb, FbProfile.class);
         }
         utility = new Utility();
-
         //swipeLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_container);
         noInternetMessage = (RelativeLayout) findViewById(R.id.no_internet_message);
         mContainer = (FrameLayout) findViewById(R.id.webview_frame);
@@ -129,8 +130,6 @@ public class MyActivity extends Activity {
                 onRefresh();
             }
         });
-
-
         cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -150,6 +149,7 @@ public class MyActivity extends Activity {
         mainWebView.setWebViewClient(new MyCustomWebViewClient());
         mainWebView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
         mainWebView.setWebChromeClient(new MyCustomChromeClient());
+        mainWebView.addJavascriptInterface(jsInterface, "JSInterface");
         mContext = this;
         if (utility.checkInternetConnectivity(mContext)) {
             mContainer.setVisibility(View.VISIBLE);

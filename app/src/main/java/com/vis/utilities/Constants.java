@@ -44,6 +44,10 @@ public class Constants {
     public static final String ACK_SOAP_ACTION = "http://tempuri.org/SendClickReceiveNotiFication";
     public static final String ACK_METHOD_NAME = "SendClickReceiveNotiFication";
 
+    public static final String CLICK_ACK_URL = "http://service.videoinshort.com/savefbuserdata.asmx";
+    public static final String CLICK_ACK_SOAP_ACTION = "http://tempuri.org/SendClickReceiveNotiFication";
+    public static final String CLICK_ACK_METHOD_NAME = "SendClickReceiveNotiFication";
+
     public static final String ACTIVE_URL = "http://service.videoinshort.com/savefbuserdata.asmx";
     public static final String ACTIVE_SOAP_ACTION = "http://tempuri.org/AppActive";
     public static final String ACTIVE_METHOD_NAME = "AppActive";

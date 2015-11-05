@@ -2,221 +2,256 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4a135d56554069e5d0ff80e3220e887e57146ee5">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-65717f1f88a313720253113d9e1a6a99c8f43959.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="0124ce31248c0e8acfa2b28283c6d1a4d76e73d2">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-a90c4b7cb89491024082279a5c4946bd52fc99ce.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-2837c166e7f43de69eea02465e549f97521b697c.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c5cafb324568d954780abb858c25db7ce675ab3c">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-7b54906ee0bc2b889f03c23c601ced38eb3ce16e.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="77a9dcb5f8b1dba36aacaa9c150eb0942dbea158">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-b8019f64064546bc28dc62597b30685e4945562a.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="166e458ee3b5fb5fcff0f936df3f3a788e6c54f3">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-2846e159169397a1369212949cea9509717716c8.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="b99f0b78bbcb76b915bc6529a83b65d4d46990dd">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-3f031e6ff5e9f29b3e75d7380c4a7c2cca3f68f8.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="98137c4d12c50923f5809852b1ef4d1c4e162081">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-52e715d210a06d2656c1fb50014c143aa0b644bc.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-52b49ca9eadf525fd1048145ec36ffc3b501cfb5.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="cb6fab7a71fa9ec1f483d44c5fca65ab469d8aca">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-2f3528bd77eb39f7a43e9025409b6481bcc38726.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-72851e840b09978d574cd56dd510961578ecec10.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1ff30fa49c07a08c3035d7218a3efebf5680d522">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-709a44d5bb1e4bcedf9ebaf62e815db88f06e25f.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="2e24e5f1b11170163028277de63f709e42525db4">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-cc53704042147b1b4b65f607f214084076e9bad2.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Desktop\Huzefa Softwares\android-sdk_r24.3.3-windows\android-sdk-windows\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-a09d870a95dbe0d48a9b1c66064e02bf804466a8.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c2ac04c5b232f6f0658ee4f1c13be09cd76406e2">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-a23b5c21e79ec1f6e7679c14630d75c03fa19408.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\gson-2.3.1-b2c36b96874cdc3cd617321151c4cb16d60d42eb.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="42a1ee578b62fd1bd28b3307a679dc9ba0791587">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-6c9de35781ebd870ab574148d49d7c33ede94c16.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="2491ae1b2a848af1f4f0c795f3117c1bd6a1989f">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-7b723af8b81e7813819e85a1e297378af1b3be36.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="6e85edfc9b5346d216e50ccef1f8e825504144a3">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-7e4333cf7bfe4c1b8fd7560cb15f279ed71a6c6b.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="edea92852b40eee716e910af8dad9eeaa58fb0e1">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-fc69b99cd06660168188cc191d5f78b32a675aeb.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="adebe28e0c0c05d34a3bfd76f3275bf4d8ff87b6">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-b25bffc97dc798a4c736da2cf0f960f7e243a612.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\libs\ksoap2-android-assembly-3.4.0-jar-with-dependencies.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="45fbaab416fb5cff992e662d1f7a83786f084fc3">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-3.4.0-jar-with-dependencies-7974bd1083283ee6cf77cfc2edd989a75841d3d0.jar" />
-    </item>
-    <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.8.0\jars\classes.jar"
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="130b32ed466fa0f63efd4c7d6250ccd2ed506790">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-d656359feb0c25d155765f604f04b1d820361d3a.jar" />
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-befcd6f5b6922d7502d34cfdadec8dd3dc414ac4.jar" />
     </item>
     <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.8.0\jars\classes.jar"
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="c756d14e99d39471e99013a1e8fd2f3813ed42bf">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-5f284f00d983dbf49d818436b83ec7c5701aafdf.jar" />
+        sha1="c5cafb324568d954780abb858c25db7ce675ab3c">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-63ef59566ea8bc01ea84b5cc1dce50c962698808.jar" />
     </item>
     <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.8.0\jars\classes.jar"
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="d11330ea68c0d964d30d5caed1f27e6b1488b189">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-1f10856506029ac87af819103797e8511f2388bb.jar" />
+        sha1="42a1ee578b62fd1bd28b3307a679dc9ba0791587">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-9c47da0dfabb9c8267ddb549b5c708144cd903ee.jar" />
     </item>
     <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jar="C:\Users\huzefaasger\.gradle\caches\modules-2\files-2.1\org.xmlpull\xmlpull\1.1.3.3\9b62254da05ce6399a09164362da7b2419de63ca\xmlpull-1.1.3.3.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-d503532884b5e5772c063fb1e5ec69ef7fcd805b.jar" />
+        sha1="9b62254da05ce6399a09164362da7b2419de63ca">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\xmlpull-1.1.3.3-4fa59c4e62f624da933b13c2e4d1fefd8e1f62bd.jar" />
     </item>
     <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.8.0\jars\classes.jar"
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="e23ea11124bb700eeddd4ab7aa848c615f493850">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-60fb38056b57abb03658e53addddb712604cbd80.jar" />
+        sha1="c2ac04c5b232f6f0658ee4f1c13be09cd76406e2">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-1111bc82e347e526a6a78f5b98eb1a3249380f6d.jar" />
     </item>
     <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\classes.jar"
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-c4b50d7d1f92e6e03ec854e331c18e304695f0e7.jar" />
+        sha1="166e458ee3b5fb5fcff0f936df3f3a788e6c54f3">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-07afa9e25c16184eaf34b730ea2aa293d9c99737.jar" />
     </item>
     <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.5.0\jars\classes.jar"
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="15ad6a46fb8e2ed86556e0b330d738b589dc62c7">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-ef03afa80e3e18664f6fe9707cbab114cc8c033f.jar" />
+        sha1="98137c4d12c50923f5809852b1ef4d1c4e162081">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-4dfebcdcb4e55c310c2d23ab51d3bb8524def8be.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0124ce31248c0e8acfa2b28283c6d1a4d76e73d2">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-77d84654f13079e3fe438a7cb30058057133f765.jar" />
     </item>
     <item
         jar="C:\Users\huzefaasger\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.0-c3305fe8fb8f7294cf8b21101f30246585c3028c.jar" />
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\bolts-android-1.2.0-c3305fe8fb8f7294cf8b21101f30246585c3028c.jar" />
     </item>
     <item
-        jar="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.8.0\jars\classes.jar"
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="edea92852b40eee716e910af8dad9eeaa58fb0e1">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-4174aef653969d939f3f6724ee22683d2c82fa94.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-d95fe0c8ecd1da48a063195f4e6094c946f90ef9.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ff30fa49c07a08c3035d7218a3efebf5680d522">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-18d56b792d2735d0357816e7bf07272d80913a2e.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6e85edfc9b5346d216e50ccef1f8e825504144a3">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-7676bec17c56254befb906921e1305ead03eed42.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\.gradle\caches\modules-2\files-2.1\com.google.code.ksoap2-android\ksoap2-j2se\3.4.0\db647f6bb3d6f839ed8a424f8186052bee302428\ksoap2-j2se-3.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="db647f6bb3d6f839ed8a424f8186052bee302428">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\ksoap2-j2se-3.4.0-c346e449b295f457f8c8f4b3a1930762050861a5.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\Desktop\Huzefa Softwares\android-sdk_r24.3.3-windows\android-sdk-windows\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\support-annotations-22.2.1-a09d870a95dbe0d48a9b1c66064e02bf804466a8.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\internal_impl-22.2.0-abc53b7ecd3e8b6023b0f7f217712b7ba6be2906.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\gson-2.3.1-b2c36b96874cdc3cd617321151c4cb16d60d42eb.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="15ad6a46fb8e2ed86556e0b330d738b589dc62c7">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-ba3a05248f07d7d5507cee4cdc33d6c2bf735958.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b99f0b78bbcb76b915bc6529a83b65d4d46990dd">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-916c16bca61f29fccf165390bec034ba99411b9b.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="adebe28e0c0c05d34a3bfd76f3275bf4d8ff87b6">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-4ee8fb10fecdfd55aa3d09fe0bf722e9e9ec01b5.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="cb6fab7a71fa9ec1f483d44c5fca65ab469d8aca">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-6c1870fdfe17fa058a963abee359fb54494c5bf0.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="2491ae1b2a848af1f4f0c795f3117c1bd6a1989f">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-a297541923bc175962b6f3c280d05270fb9fd97f.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\.gradle\caches\modules-2\files-2.1\net.sourceforge.kobjects\kobjects-j2me\0.0-SNAPSHOT-20040926-2\9246ca92b16c65114a7fb80b906801e06be95305\kobjects-j2me-0.0-SNAPSHOT-20040926-2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9246ca92b16c65114a7fb80b906801e06be95305">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\kobjects-j2me-0.0-SNAPSHOT-20040926-2-a2c5b43ba0d9a695e34d4b73e4b3aea62252d233.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-db8efae5b31173a4c60fbc6f192b9f47f71aabe4.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\.gradle\caches\modules-2\files-2.1\net.sourceforge.kxml\kxml\2.2.4\1642506e490548d96984b8370e44257c156097f7\kxml-2.2.4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1642506e490548d96984b8370e44257c156097f7">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\kxml-2.2.4-c5158814e3b5799ac52acd54f6a91718b1d08f75.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\internal_impl-22.2.1-6b315c35c56a0c2530bd92ceb333f708de0d2491.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d11330ea68c0d964d30d5caed1f27e6b1488b189">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-2fe93510555c5fa21f418a5653c4a28042b109c7.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\.gradle\caches\modules-2\files-2.1\com.google.code.ksoap2-android\ksoap2-base\3.4.0\cffc2d333deacfae35a8639c96013f34d6a94665\ksoap2-base-3.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="cffc2d333deacfae35a8639c96013f34d6a94665">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\ksoap2-base-3.4.0-9c19540d9bddbf931e413d1d16fe238cbaf29c3c.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e23ea11124bb700eeddd4ab7aa848c615f493850">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-584e4fee874662390e7d83a7447b193d490ec523.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-9ec5fa7df51f0a6fef5c5091a536987b529b91db.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="2e24e5f1b11170163028277de63f709e42525db4">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-bd5f9d1c14650a241dd1df29f84bf596f594bf55.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c756d14e99d39471e99013a1e8fd2f3813ed42bf">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-bd8a2e003ed02dead7635314c5f54e2e5fb3248f.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4a135d56554069e5d0ff80e3220e887e57146ee5">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-4c479a8988b998e62b6f561d71d3b026f394f9d5.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="c0c912d58c9468b1f9d9769c8975afdf2c85d681">
-        <dex dex="C:\Users\huzefaasger\Downloads\Buzzonn1\app\build\intermediates\pre-dexed\debug\classes-fde9bf6044c9cc069e2ddfcd710bea500e28189a.jar" />
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-ec1f2d76d316dd56f64b62062590093487b29ee8.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\.gradle\caches\modules-2\files-2.1\com.google.code.ksoap2-android\ksoap2-android\3.4.0\95010db60d27ca8bed8ebf912a6e274cc723c524\ksoap2-android-3.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="95010db60d27ca8bed8ebf912a6e274cc723c524">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\ksoap2-android-3.4.0-629aab9d47c70a929323fd98fc8076539deb7d1b.jar" />
+    </item>
+    <item
+        jar="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="77a9dcb5f8b1dba36aacaa9c150eb0942dbea158">
+        <dex dex="C:\Users\huzefaasger\StudioProjects\VideoInSecond\app\build\intermediates\pre-dexed\release\classes-2ee2210f637d6f4eec8ba90f42c2c07d9b5881d9.jar" />
     </item>
 
 </items>

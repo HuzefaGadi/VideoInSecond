@@ -347,6 +347,84 @@ public class WebServiceUtility {
     }
 
 
+   /* public void sendAcknowledgementForClickStatus(NotificationMessage
+                                                          notification) {
+
+        //Create request
+        SoapObject request = new SoapObject(Constants.NAMESPACE, Constants.ACK_METHOD_NAME);
+        //Property which holds input parameters
+        PropertyInfo userId = new PropertyInfo();
+        //Set Name
+        userId.setName("UserId");
+        //Set Value
+        userId.setValue(notification.getUid());
+        //Set dataType
+        userId.setType(String.class);
+        //Add the property to request object
+
+        //Property which holds input parameters
+        PropertyInfo notificationId = new PropertyInfo();
+        //Set Name
+        notificationId.setName("NotificationId");
+        //Set Value
+        notificationId.setValue(notification.getNotificationId());
+        //Set dataType
+        notificationId.setType(String.class);
+        //Add the property to request object
+
+
+        //Property which holds input parameters
+        PropertyInfo clickStatus = new PropertyInfo();
+        //Set Name
+        clickStatus.setName("clickStatus");
+        //Set Value
+        clickStatus.setValue("1");
+        //Set dataType
+        clickStatus.setType(String.class);
+
+        //Property which holds input parameters
+        PropertyInfo recStatus = new PropertyInfo();
+        //Set Name
+        recStatus.setName("receiveStatus");
+        //Set Value
+        recStatus.setValue("1");
+        //Set dataType
+        recStatus.setType(String.class);
+
+
+        //Add the property to request object
+        request.addProperty(userId);
+        request.addProperty(notificationId);
+        request.addProperty(recStatus);
+        request.addProperty(clickStatus);
+
+
+        //Create envelope
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                SoapEnvelope.VER11);
+        envelope.dotNet = true;
+        //Set output SOAP object
+        envelope.setOutputSoapObject(request);
+
+
+        //Create HTTP call object
+
+        HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.ACK_URL);
+
+        try {
+            //Invole web service
+            androidHttpTransport.call(Constants.ACK_SOAP_ACTION, envelope);
+            //Get the response
+            SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
+            //Assign it to fahren static variable
+            String responseFromService = response.toString();
+            System.out.println("Response from CLICK status" + responseFromService);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }*/
+
     public void sendAcknowledgementForClickStatus(NotificationMessage
                                                           notification) {
 
