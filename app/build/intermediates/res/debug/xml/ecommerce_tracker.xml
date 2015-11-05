@@ -3,4 +3,4 @@
     <integer name="ga_sessionTimeout">60</integer>
     <!-- change the following line  -->
     <string name="ga_trackingId">UA-67268774-1</string>
-</resources><!-- From: file:/C:/Users/huzefaasger/StudioProjects/VideoInSecond/app/src/main/res/xml/ecommerce_tracker.xml -->
+</resources><!-- From: file:/Users/Rashida/Downloads/VideoInSecond/app/src/main/res/xml/ecommerce_tracker.xml -->

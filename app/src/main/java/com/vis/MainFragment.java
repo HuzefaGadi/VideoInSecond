@@ -78,6 +78,7 @@ public class MainFragment extends Fragment {
                                 fbProfile.setFbProfileLink("http://www.facebook.com/" + fbProfile.getFbUserId());
                                 fbProfile.setProfileImagePath("http://graph.facebook.com/"+fbProfile.getFbUserId()+"/picture?type=large");
                                 String fbUserInfo = gson.toJson(fbProfile);
+                                Log.d("vis",fbUserInfo);
                                 edit.putString(Constants.FB_USER_INFO, fbUserInfo);
                                 edit.commit();
                                 Intent intent = new Intent(getActivity(), MyActivity.class);
@@ -105,6 +106,7 @@ public class MainFragment extends Fragment {
         @Override
         public void onError(FacebookException e) {
             loginButton.setVisibility(View.VISIBLE);
+            Log.d("vis",e.getMessage());
         }
 
 
@@ -115,6 +117,8 @@ public class MainFragment extends Fragment {
             pd.cancel();
         }
     }
+
+
 
     public MainFragment() {
 
@@ -177,8 +181,6 @@ public class MainFragment extends Fragment {
                 startActivity(intent);
                 getActivity().finish();
             } else {
-
-
                 Intent intent = new Intent("finish_activity");
                 getActivity().sendBroadcast(intent);
             }
@@ -201,12 +203,7 @@ public class MainFragment extends Fragment {
         loginButton.setReadPermissions(Arrays.asList("public_profile, email, user_birthday, user_friends,user_location,basic_info"));
         loginButton.setFragment(this);
         loginButton.registerCallback(callbackManager, callback);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
         Profile profile = Profile.getCurrentProfile();
         if (profile != null) {
             System.out.println("PROFILE-->" + profile.getLinkUri());
