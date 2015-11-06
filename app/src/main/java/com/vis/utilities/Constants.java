@@ -20,8 +20,11 @@ public class Constants {
     public static final String PREFERENCES_SHOW_ALARM = "SHOWALARM";
 
 
-    public static final String QUIZ_FEED_URL = "http://www.videoinshort.com/todays-picks";
+   public static final String QUIZ_FEED_URL = "http://www.videoinshort.com/todays-picks";
+    //public static final String QUIZ_FEED_URL = "http://www.google.com";
     public static final String url = "http://www.videoinshort.com/todays-picks";
+    //public static final String url = "http://www.timesofindia.com";
+
     public static final String target_url_prefix = "m.videoinshort.com";
     public static final String target_url_prefix2 = "www.videoinshort.com";
     public static final String terms_and_condition = "http://m1.buzzonn.com/PrivcyPolicy.aspx";
@@ -65,7 +68,8 @@ public class Constants {
     public static final int CLICK_INFO_TASK = 4;
     public static final int USER_INFO_TASK = 5;
     public static final int UPDATE_APP = 6;
-    public static final String USER_AGENT_POSTFIX = "VideoInShortWithFacebook";
+    public static final String USER_AGENT_POSTFIX_WITH_FACEBOOK = "VideoInShortWithFacebook";
+    public static final String USER_AGENT_POSTFIX_WITHOUT_FACEBOOK = "VideoInShort";
     public static String SEND_REG_ID = "REGID";
     public static String SEND_CONTACTS = "CONTACTS";
 }

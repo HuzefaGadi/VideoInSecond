@@ -24,6 +24,7 @@ import com.facebook.Profile;
 import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.facebook.share.widget.ShareDialog;
 import com.google.gson.Gson;
 import com.vis.beans.FbProfile;
 import com.vis.utilities.Constants;
@@ -49,7 +50,7 @@ public class MainFragment extends Fragment {
     boolean fromSettings;
     LoginButton loginButton;
     ProgressDialog pd;
-
+    ShareDialog shareDialog;
 
     private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
 
@@ -147,7 +148,7 @@ public class MainFragment extends Fragment {
         preferences = getActivity().getSharedPreferences(Constants.PREFERENCES_NAME, Context.MODE_PRIVATE);
         edit = preferences.edit();
         callbackManager = CallbackManager.Factory.create();
-
+        shareDialog = new ShareDialog(this);
         accessTokenTracker = new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldToken, AccessToken newToken) {

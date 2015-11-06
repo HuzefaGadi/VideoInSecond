@@ -11,7 +11,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -110,8 +112,8 @@ public class MyActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        JavaScriptInterface jsInterface = new JavaScriptInterface(this);
+        mContext = this;
+      JavaScriptInterface jsInterface = new JavaScriptInterface(this);
         String responseFromFb = getIntent().getStringExtra(Constants.FB_USER_INFO);
         if (responseFromFb != null && !responseFromFb.isEmpty()) {
             fbProfile = new Gson().fromJson(responseFromFb, FbProfile.class);
@@ -142,15 +144,27 @@ public class MyActivity extends Activity {
         webSettings.setAppCacheEnabled(true);
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
         webSettings.setSupportMultipleWindows(true);
-        webSettings.setUserAgentString(
-                webSettings.getUserAgentString()
-                        + " "
-                        + Constants.USER_AGENT_POSTFIX);
+
+        try{
+            ApplicationInfo info = getPackageManager().
+                    getApplicationInfo("com.facebook.katana", 0 );
+            webSettings.setUserAgentString(
+                    webSettings.getUserAgentString()
+                            + " "
+                            + Constants.USER_AGENT_POSTFIX_WITH_FACEBOOK);
+        } catch( PackageManager.NameNotFoundException e ){
+            webSettings.setUserAgentString(
+                    webSettings.getUserAgentString()
+                            + " "
+                            + Constants.USER_AGENT_POSTFIX_WITHOUT_FACEBOOK);
+        }
+        mainWebView.addJavascriptInterface(jsInterface, "JSInterface");
+       // mainWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         mainWebView.setWebViewClient(new MyCustomWebViewClient());
         mainWebView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
         mainWebView.setWebChromeClient(new MyCustomChromeClient());
-        mainWebView.addJavascriptInterface(jsInterface, "JSInterface");
-        mContext = this;
+
+
         if (utility.checkInternetConnectivity(mContext)) {
             mContainer.setVisibility(View.VISIBLE);
             noInternetMessage.setVisibility(View.GONE);
@@ -172,10 +186,10 @@ public class MyActivity extends Activity {
         }
 
 
-        Tracker t = ((Analytics) getApplication()).getTracker(TrackerName.APP_TRACKER);
-        t.setScreenName("MainActivity");
+       /*Tracker t = ((Analytics) getApplication()).getTracker(TrackerName.APP_TRACKER);
+        t.setScreenName("MyActivity");
         t.enableAdvertisingIdCollection(true);
-        t.send(new HitBuilders.AppViewBuilder().build());
+        t.send(new HitBuilders.AppViewBuilder().build());*/
 
         SharedPreferences prefs = getPreferences(mContext);
         if (prefs.getBoolean("ALARM_SET", false)) {
@@ -363,6 +377,7 @@ public class MyActivity extends Activity {
         if (mainWebView != null) {
             mainWebView.onResume();
             mainWebView.resumeTimers();
+            onRefresh();
         }
     }
 
