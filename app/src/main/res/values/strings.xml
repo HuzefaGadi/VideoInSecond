@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">VideoInShort</string>
+    <string name="app_name">Video in Short</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="no_internet_message">Oops!  It seems you are not connected to the internet. \n Please connect and try again.</string>
